@@ -3,7 +3,9 @@ import { InputBox } from "../components/InputBox";
 export default function Home() {
   return (
     <>
-      <InputBox />
+      <div>
+        <InputBox />
+      </div>
     </>
   );
 }

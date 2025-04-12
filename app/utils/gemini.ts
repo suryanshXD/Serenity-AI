@@ -1,4 +1,5 @@
 "use server";
+import { redirect } from "next/navigation";
 import { auth } from "./auth";
 import { prisma } from "./db";
 
@@ -45,7 +46,7 @@ export async function generateContent({ prompt }: { prompt: string }) {
   const [summary, analysis, response, interpretation] = JSON.parse(cleanedText);
   const session = await auth();
   const userId = session?.user?.id;
-  await prisma.response.create({
+  const data = await prisma.response.create({
     data: {
       responseid: userId,
       Prompt: prompt,
@@ -55,4 +56,5 @@ export async function generateContent({ prompt }: { prompt: string }) {
       Interpretation: interpretation,
     },
   });
+  return redirect(`/home/${data.id}`);
 }
