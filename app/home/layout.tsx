@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { auth, signOut } from "../utils/auth";
 import { Profile } from "../components/Profile";
 import React from "react";
+import Link from "next/link";
 
 export default async function HomeLayout({
   children,
@@ -16,13 +17,14 @@ export default async function HomeLayout({
   return (
     <>
       <div className="flex flex-row justify-between px-20 py-7 shadow-md">
-        <div className="text-3xl font-semibold pl-10">
+        <Link href={'/home'} className="text-3xl font-semibold pl-10 cursor-pointer">
           Serenity<span className="text-pink-500">AI</span>
-        </div>
+        </Link>
         <div className="flex items-center gap-4">
           <Profile />
         </div>
       </div>
+      
       {children}
     </>
   );

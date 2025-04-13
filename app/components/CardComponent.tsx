@@ -8,8 +8,8 @@ interface output {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 1.5 } },
+  hidden: { opacity: 0, x: 20 },
+  show: { opacity: 1, y : 0, transition: { duration: 1.5 } },
 };
 
 export default function CardComponent({ title, description }: output) {

@@ -20,6 +20,8 @@ A suitable response or recommendation tailored to the detected mood, which could
 
  A mood-based output in a creative form such as a short poem, metaphor, or symbolic representation.
 
+  Give a one word summary for how the persons mood is according to Happy , sad, angry , Anxious , Calm add this part in the end of the response
+
 Guidelines:
 Ensure high accuracy in mood detection, considering nuances like tone, word choice, and context.
 
@@ -43,7 +45,7 @@ export async function generateContent({ prompt }: { prompt: string }) {
   const cleanedText = text
     .replace(/```(?:json)?\s*([\s\S]*?)\s*```/, "$1")
     .trim();
-  const [summary, analysis, response, interpretation] = JSON.parse(cleanedText);
+  const [summary, analysis, response, interpretation , mood] = JSON.parse(cleanedText);
   const session = await auth();
   const userId = session?.user?.id;
   const data = await prisma.response.create({
@@ -54,6 +56,7 @@ export async function generateContent({ prompt }: { prompt: string }) {
       Analysis: analysis,
       Response: response,
       Interpretation: interpretation,
+      Mood: mood
     },
   });
   return redirect(`/home/${data.id}`);

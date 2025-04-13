@@ -20,10 +20,10 @@ export async function Profile() {
       <DropdownMenu>
         <DropdownMenuTrigger>
           <img
-            className="rounded-full size-10 cursor-pointer "
+            className="rounded-lg size-11 cursor-pointer"
             src={session.user?.image!}
             alt="User-Image"
-          />
+          /> 
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mr-2">
           <DropdownMenuLabel className="text-gray-700">

@@ -84,6 +84,7 @@ model Response {
   Analysis       String
   Response       String
   Interpretation String
+  Mood           String?
   createdAt      DateTime @default(now())
   responseid     String
   user           User     @relation(fields: [responseid], references: [id])

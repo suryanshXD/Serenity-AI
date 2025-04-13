@@ -10,7 +10,7 @@ export function InputBox() {
   const [prompt, setPrompt] = useState("");
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center mt-80">
         <form
           action={async () => {
             await generateContent({ prompt });
