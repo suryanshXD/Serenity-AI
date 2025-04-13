@@ -17,14 +17,13 @@ export default async function HomeLayout({
   return (
     <>
       <div className="flex flex-row justify-between px-20 py-7 shadow-md">
-        <Link href={'/home'} className="text-3xl font-semibold pl-10 cursor-pointer">
+        <Link href={'/home'} className="text-3xl font-semibold pl-10 cursor-po">
           Serenity<span className="text-pink-500">AI</span>
         </Link>
         <div className="flex items-center gap-4">
           <Profile />
         </div>
       </div>
-      
       {children}
     </>
   );

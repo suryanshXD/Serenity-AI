@@ -23,7 +23,7 @@ export function InputBox() {
               }}
               placeholder="Enter your prompt here"
             />
-            <Button>
+            <Button className="cursor-pointer">
               <ArrowUp />
             </Button>
           </Card>

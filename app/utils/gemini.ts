@@ -20,7 +20,7 @@ A suitable response or recommendation tailored to the detected mood, which could
 
  A mood-based output in a creative form such as a short poem, metaphor, or symbolic representation.
 
-  Give a one word summary for how the persons mood is according to Happy , sad, angry , Anxious , Calm add this part in the end of the response
+  Give a one word summary for how the persons mood is according to POSITIVE OR NEGATIVE add this part at end of the array
 
 Guidelines:
 Ensure high accuracy in mood detection, considering nuances like tone, word choice, and context.
@@ -56,7 +56,8 @@ export async function generateContent({ prompt }: { prompt: string }) {
       Analysis: analysis,
       Response: response,
       Interpretation: interpretation,
-      Mood: mood
+      Mood: mood,
+      status : mood
     },
   });
   return redirect(`/home/${data.id}`);

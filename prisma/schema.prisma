@@ -78,14 +78,20 @@ model Authenticator {
 }
 
 model Response {
-  id             String   @id() @default(uuid())
+  id             String        @id() @default(uuid())
   Prompt         String
   Summary        String
   Analysis       String
   Response       String
   Interpretation String
   Mood           String?
-  createdAt      DateTime @default(now())
+  status         ResponseMood?
+  createdAt      DateTime      @default(now())
   responseid     String
-  user           User     @relation(fields: [responseid], references: [id])
+  user           User          @relation(fields: [responseid], references: [id])
+}
+
+enum ResponseMood {
+  POSITIVE
+  NEGATIVE
 }
