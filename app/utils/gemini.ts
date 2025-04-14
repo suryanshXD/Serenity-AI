@@ -8,6 +8,8 @@ const ai = new generative_ai_1.GoogleGenerativeAI(
   "AIzaSyAXtmadbbnhJS1FSf87jWuH2UMc3tr5J24"
 );
 
+type MoodAnalysisTuple = [string, string, string, string, string];
+
 const model = ai.getGenerativeModel({
   model: "gemini-2.0-flash",
   systemInstruction: `You are an advanced AI model specializing in mood analysis. Your task is to analyze a person's mood based on provided text, speech, or other input and categorize it into one of several emotional states. Based on the analysis, generate four different output formats:
@@ -31,7 +33,7 @@ Adapt responses to be empathetic and contextually appropriate.
 
 If uncertainty exists, express it and provide a balanced interpretation.
 
-Keep outputs structured and easy to understand. 
+Keep outputs structured and easy to understand and also dont use pointing output like - The person
 
 Generate final answer in form of an array with no object only value in form of array value 
 try giving ans less than 30 words
@@ -45,19 +47,19 @@ export async function generateContent({ prompt }: { prompt: string }) {
   const cleanedText = text
     .replace(/```(?:json)?\s*([\s\S]*?)\s*```/, "$1")
     .trim();
-  const [summary, analysis, response, interpretation , mood] = JSON.parse(cleanedText);
+  const [summary, analysis, response, interpretation , mood]:MoodAnalysisTuple = JSON.parse(cleanedText)
+  
   const session = await auth();
   const userId = session?.user?.id;
   const data = await prisma.response.create({
     data: {
-      responseid: userId,
+      responseid: userId!,
       Prompt: prompt,
       Summary: summary,
       Analysis: analysis,
       Response: response,
       Interpretation: interpretation,
       Mood: mood,
-      status : mood
     },
   });
   return redirect(`/home/${data.id}`);
