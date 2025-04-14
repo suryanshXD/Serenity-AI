@@ -9,7 +9,7 @@ export function Header() {
           Serenity<span className="text-pink-500">AI</span>
         </div>
         <div className="flex items-center gap-4">
-          <Link href={"/profile"} className={buttonVariants()}>
+          <Link href={"/auth"} className={buttonVariants()}>
             Get started
           </Link>
         </div>

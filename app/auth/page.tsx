@@ -1,7 +1,9 @@
 import { auth, signIn, signOut } from "@/app/utils/auth";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { redirect } from "next/navigation";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default async function SignIn() {
   const session = await auth();
@@ -28,6 +30,7 @@ export default async function SignIn() {
             />
             Continue with Google
           </Button>
+          <Link href={'/'} className={buttonVariants()}><ArrowLeft/>Return</Link>
         </Card>
       </div>
     </form>

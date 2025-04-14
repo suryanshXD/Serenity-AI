@@ -2,10 +2,11 @@ import  CardComponent  from "@/app/components/CardComponent";
 import { auth } from "@/app/utils/auth";
 import { prisma } from "@/app/utils/db";
 import { redirect } from "next/navigation";
-import { Menu } from "lucide-react";
+import { ArrowLeft, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { SheetContnentComponent } from "@/app/components/SheetContent";
+import Link from "next/link";
 
 export default async function ResponseContent({
   params,
@@ -64,6 +65,9 @@ export default async function ResponseContent({
           <CardComponent title="Interpretation" description={reponse?.Interpretation!}
           />
         </div>
+      </div>
+      <div className="flex justify-end mt-16 mr-2">
+        <Link href={'/home'} target="_self" className={buttonVariants()}><ArrowLeft/>Back</Link>
       </div>
     </>
   );
