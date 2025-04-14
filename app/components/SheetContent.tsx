@@ -1,6 +1,3 @@
-import { SheetContent } from "@/components/ui/sheet";
-import { auth } from "../utils/auth";
-import { prisma } from "../utils/db";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 

@@ -1,5 +1,4 @@
 import { InputBox } from "../components/InputBox";
-import { ResponseGraph } from "../components/ResponseGraph";
 import { SheetContnentComponent } from "../components/SheetContent";
 import { Text } from "../components/Text";
 import { auth } from "../utils/auth";

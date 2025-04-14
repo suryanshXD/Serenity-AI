@@ -7,7 +7,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { auth, signOut } from "../utils/auth";
-import { redirect } from "next/navigation";
 
 export async function Profile() {
   const session = await auth();

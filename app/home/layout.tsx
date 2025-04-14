@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { auth, signOut } from "../utils/auth";
+import { auth } from "../utils/auth";
 import { Profile } from "../components/Profile";
 import React from "react";
 import Link from "next/link";

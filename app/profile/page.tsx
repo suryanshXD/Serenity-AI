@@ -1,8 +1,7 @@
 import { auth, signIn, signOut } from "@/app/utils/auth";
 import { Button } from "@/components/ui/button";
 import { redirect } from "next/navigation";
-import Google from "@/public/GoogleLogo.webp";
-import { Card, CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 export default async function SignIn() {
   const session = await auth();
