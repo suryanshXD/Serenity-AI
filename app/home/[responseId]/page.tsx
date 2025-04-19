@@ -43,19 +43,7 @@ export default async function ResponseContent({
 
   return (
     <>
-     <div>
-     <Sheet>
-      <SheetTrigger asChild className="ml-4 mt-4">
-        <Button><Menu/></Button>
-      </SheetTrigger>
-      <SheetContent side="left">
-        <SheetTitle  className="text-3xl text-zinc-700 font-medium flex flex-row justify-evenly pr-5 py-8 mb-10 shadow-lg ">Recent Analysis</SheetTitle>
-        <SheetDescription  className="antialiased  bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">{usersPrompt.map((content) => (
-          <SheetContnentComponent prompt={content.Prompt} id={content.id}/>
-        ))}</SheetDescription>
-      </SheetContent>
-      
-     </Sheet>
+     <div>  
     </div>
       <div className="flex flex-row justify-center items-center pt-40">
         <div className="grid grid-cols-4 gap-4 ml-10">

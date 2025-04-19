@@ -1,6 +1,6 @@
 "use client"
 import { useCallback, useState, MouseEvent } from "react";
-import home from '@/public/Home.webp'
+import home from '@/public/Home.png'
 import Image from "next/image";
 
 function throttle<T extends (...args: any[]) => any>(

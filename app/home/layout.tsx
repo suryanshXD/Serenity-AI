@@ -3,6 +3,10 @@ import { auth } from "../utils/auth";
 import { Profile } from "../components/Profile";
 import React from "react";
 import Link from "next/link";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { Toaster } from "@/components/ui/sonner";
 
 export default async function HomeLayout({
   children,
@@ -23,6 +27,19 @@ export default async function HomeLayout({
         <div className="flex items-center gap-4">
           <Profile />
         </div>
+      </div>
+      <div className="ml-1">
+      <Sheet>
+        <SheetTrigger asChild className="ml-4 mt-4">
+          <Button><Menu/></Button>
+            </SheetTrigger>
+              <SheetContent side="left" className="w-sm">
+              <SheetTitle  className="text-3xl text-zinc-700 font-semibold flex flex-row justify-evenly pr-5 py-8 mb-10 shadow-lg ">Menu</SheetTitle>
+             <SheetDescription className=""><Link href={'/home'} className="text-2xl ml-5 text-stone-600 font-medium">- Home</Link></SheetDescription>
+             <SheetDescription className=""><Link href={'/home/recent'} className="text-2xl ml-5 text-stone-600 font-medium">- Recent</Link></SheetDescription>
+             <SheetDescription className=""><Link href={'/meditation'} className="text-2xl ml-5 text-stone-600 font-medium">- Meditation</Link></SheetDescription>
+        </SheetContent>
+      </Sheet>
       </div>
       {children}
     </>
